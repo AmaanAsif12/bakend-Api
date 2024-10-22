@@ -1,7 +1,7 @@
 import express from 'express';
 import router from './Router/index.js';
 import mongoose from './config/db.js';  // Import the mongoose instance
-
+import cors from 'cors'
 const app = express();
 
 app.get('/', (req, res) => {
@@ -16,4 +16,5 @@ app.listen(3001, () => {
 });
 app.use(express.json());
 // Use the router
+app.use(cors());
 app.use('/', router);
